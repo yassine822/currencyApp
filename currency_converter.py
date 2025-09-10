@@ -115,6 +115,19 @@ def on_leave(e):
 convert_btn.bind("<Enter>", on_enter)
 convert_btn.bind("<Leave>", on_leave)
 
+# ---------- Switch Button ----------
+def switch_currencies():
+    from_value = from_combo.get()
+    to_value = to_combo.get()
+    from_combo.set(to_value)
+    to_combo.set(from_value)
+
+switch_btn = tk.Button(frame, text="⇄ Switch", command=switch_currencies,
+                       bg="#27ae60", fg="white", font=("Arial", 11, "bold"),
+                       padx=10, pady=3, relief="raised", bd=2, activebackground="#0de94b")
+switch_btn.grid(row=1, column=2, padx=5, pady=5)
+
+
 # ---------- Result Label ----------
 result_label = tk.Label(root, text="", font=("Arial", 16, "bold"), bg="#37a36d", fg="#f1c40f")
 canvas.create_window(325, 420, window=result_label)
