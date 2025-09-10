@@ -55,6 +55,7 @@ def open_calculator():
     calc_win.geometry("430x550")
     calc_win.config(bg="#2c3e50")
     calc_win.resizable(False, False)
+    
 
     # Display
     entry = tk.Entry(calc_win, font=("Arial", 20), bd=8, relief="ridge", justify="right", bg="#ecf0f1")
@@ -74,6 +75,12 @@ def open_calculator():
         except:
             entry.delete(0, tk.END)
             entry.insert(tk.END, "Error")
+            from PIL import Image, ImageTk
+
+
+        
+   
+
 
     # Buttons layout
     buttons = [
