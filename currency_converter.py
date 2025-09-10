@@ -132,6 +132,9 @@ switch_btn.grid(row=1, column=2, padx=5, pady=5)
 result_label = tk.Label(root, text="", font=("Arial", 16, "bold"), bg="#37a36d", fg="#f1c40f")
 canvas.create_window(325, 420, window=result_label)
 # test change
+# test change
+
+
 
 
 
