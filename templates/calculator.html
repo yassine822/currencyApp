@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_calculator.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="top-bar">
+       <h2>Calculator</h2>
+       <button class="btn-back" onclick="window.location.href='{{ url_for('index') }}'">
+          <i class="fas fa-arrow-left"></i> Back
+       </button>
+    </div>
+
+    <div class="calculator-container">
+        <div class="calculator-card">
+            <!-- Calculator Left Column -->
+            <div class="calculator-left">
+                <input type="text" id="display" placeholder="0" readonly>
+                <div class="buttons">
+                    <button onclick="clearDisplay()" class="btn-red">C</button>
+                    <button onclick="press('/')"><i class="fas fa-divide"></i></button>
+                    <button onclick="press('*')"><i class="fas fa-times"></i></button>
+                    <button onclick="press('-')"><i class="fas fa-minus"></i></button>
+                    
+
+                    <button onclick="press('7')">7</button>
+                    <button onclick="press('8')">8</button>
+                    <button onclick="press('9')">9</button>
+                    <button onclick="press('+')"><i class="fas fa-plus"></i></button>
+
+                    
+                    <button onclick="press('4')">4</button>
+                    <button onclick="press('5')">5</button>
+                    <button onclick="press('6')">6</button>
+                    <button onclick="calculateResult()" class="btn-equal">=</button>
+
+                    <button onclick="press('1')">1</button>
+                    <button onclick="press('2')">2</button>
+                    <button onclick="press('3')">3</button>
+
+                    <button onclick="press('0')" class="btn-zero">0</button>
+                    <button onclick="press('.')">.</button>
+                </div>
+            </div>
+
+            <!-- History Right Column -->
+            <div class="calculator-right">
+                <h3>History</h3>
+                <ul id="history-list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+</body>
+</html>

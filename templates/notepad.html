@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notepad & Drawing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_notepad.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Animated Coins -->
+    <script>
+        const numCoins = 20;
+        for(let i=0;i<numCoins;i++){
+            const coin = document.createElement('div');
+            coin.classList.add('coin');
+            coin.style.left = Math.random() * window.innerWidth + 'px';
+            coin.style.fontSize = (Math.random()*24+16)+'px';
+            coin.style.animationDuration = (Math.random()*10+5)+'s';
+            coin.style.animationDelay = (Math.random()*5)+'s';
+            coin.innerHTML = '💰';
+            document.body.appendChild(coin);
+        }
+    </script>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="title">
+            <i class="fas fa-pencil-alt"></i> Notepad & Drawing
+        </div>
+        <button class="btn-back" onclick="window.location.href='{{ url_for('index') }}'">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <button onclick="saveText()" class="btn"><i class="fas fa-file-alt"></i> Save Text</button>
+        <button onclick="saveDrawing()" class="btn"><i class="fas fa-download"></i> Save Drawing</button>
+
+        <label>Pen Color: 
+            <input type="color" id="penColor" value="#f1c40f">
+        </label>
+        <label>Pen Size: 
+            <select id="penSize">
+                <option value="2">2</option>
+                <option value="5" selected>5</option>
+                <option value="8">8</option>
+                <option value="12">12</option>
+            </select>
+        </label>
+        <button onclick="clearCanvas()" class="btn"><i class="fas fa-eraser"></i> Clear</button>
+    </div>
+
+    <!-- Panels -->
+    <div class="panels">
+        <div class="panel text-panel">
+            <h3><i class="fas fa-file-alt"></i> Notes</h3>
+            <textarea id="noteText" placeholder="Write your notes here..."></textarea>
+        </div>
+        <div class="panel draw-panel">
+            <h3><i class="fas fa-paint-brush"></i> Drawing</h3>
+            <canvas id="drawCanvas"></canvas>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/notepad.js') }}"></script>
+</body>
+</html>

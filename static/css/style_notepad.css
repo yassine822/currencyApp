@@ -1,0 +1,151 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #5b8ca2;
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+}
+
+/* Animated coin background */
+@keyframes floatCoins {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.coin {
+    position: absolute;
+    font-size: 24px;
+    color: gold;
+    animation: floatCoins linear infinite;
+}
+
+.top-bar {
+    width: 100%;
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 30px; /* increased horizontal padding */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    z-index: 10;
+    position: relative;
+}
+
+.btn-back {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 40px; /* move it 20px to the left from the edge */
+}
+
+.btn-back:hover {
+    background-color: #c0392b;
+}
+
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    background: #34495e;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 5;
+}
+
+.toolbar .btn {
+    background-color: #16a085;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.toolbar .btn:hover {
+    background-color: #1abc9c;
+}
+
+.toolbar label {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #ecf0f1;
+}
+
+/* Panels */
+.panels {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    height: calc(100vh - 120px);
+    box-sizing: border-box;
+}
+
+.panel {
+    flex: 1;
+    background: #4e667e;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    color: #f1c40f;
+}
+
+/* Text Panel */
+#noteText {
+    flex: 1;
+    width: 97%;
+    border: 1px solid #16a085;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 16px;
+    resize: none;
+    background-color: #1c2833;
+    color: #ecf0f1;
+}
+
+/* Drawing Panel */
+#drawCanvas {
+    flex: 1;
+    border: 1px solid #16a085;
+    border-radius: 12px;
+    background-color: #1c2833;
+    cursor: crosshair;
+}
+
+/* Scrollbar for text */
+#noteText::-webkit-scrollbar {
+    width: 8px;
+}
+#noteText::-webkit-scrollbar-thumb {
+    background-color: #16a085;
+    border-radius: 4px;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_index.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Top Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <i class="fas fa-coins nav-icon"></i>
+            <span class="nav-title">Currency Converter</span>
+        </div>
+        <div class="nav-right">
+            <a href="{{ url_for('calculator') }}" class="nav-btn"><i class="fas fa-calculator"></i> Calculator</a>
+            <a href="{{ url_for('notepad') }}" class="nav-btn"><i class="fas fa-pen-nib"></i> Notepad</a>
+        </div>
+    </nav>
+
+    <!-- Welcome Message -->
+    <div class="welcome-message">
+        <h2>Welcome to the Converter App!</h2>
+        <p>Use the calculator or notepad while converting currencies with live exchange rates.</p>
+    </div>
+
+    <!-- Converter Card -->
+    <div class="converter-card">
+        <h2>Convert Currency</h2>
+
+        <form method="POST">
+            <div class="input-group">
+                <label for="from_currency">From:</label>
+                <select name="from_currency" id="from_currency">
+                    {% for code, name in currencies.items() %}
+                        <option value="{{ code }}" {% if code == from_currency %}selected{% endif %}>{{ name }} ({{ code }})</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="to_currency">To:</label>
+                <select name="to_currency" id="to_currency">
+                    {% for code, name in currencies.items() %}
+                        <option value="{{ code }}" {% if code == to_currency %}selected{% endif %}>{{ name }} ({{ code }})</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="amount">Amount:</label>
+                <input type="number" step="any" name="amount" id="amount" placeholder="Enter amount" value="{{ amount }}">
+            </div>
+
+            <div class="swap-btn">
+                <button type="button" id="swap-btn">⇄ Swap</button>
+            </div>
+
+            <button type="submit" id="convert-btn">Convert</button>
+        </form>
+
+        <div id="result">
+            {% if result %}
+                <p>{{ amount }} {{ from_currency }} = {{ result }} {{ to_currency }}</p>
+            {% elif error %}
+                <p class="error-msg">{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Contact us: <i class="fas fa-envelope"></i> info@converterapp.com | <i class="fas fa-phone"></i> +123 456 7890</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/converter.js') }}"></script>
+</body>
+</html>
