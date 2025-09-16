@@ -12,14 +12,12 @@ class FlaskAppTests(unittest.TestCase):
         # Check if homepage ("/") loads successfully
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b"Welcome", response.data)  # page must contain word "Welcome"
+        self.assertIn(b"Currency Converter", response.data)  # match your index.html title
 
     def test_converter_page(self):
         # Check if converter page loads
-        response = self.app.get('/converter')
+        response = self.app.get('/calculator')
         self.assertEqual(response.status_code, 200)
 
 if __name__ == "__main__":
     unittest.main()
-
-#hello
