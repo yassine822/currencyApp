@@ -22,5 +22,5 @@ This is a **Currency Converter Web Application** built using **Flask**, **HTML/C
 
 - **Navigation**
   - Top navigation bar with links to Calculator and Notepad
-  - Footer with contact information
+  - Footer with contact information......
 
