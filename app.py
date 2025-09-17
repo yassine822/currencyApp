@@ -93,5 +93,9 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
+<<<<<<< HEAD
     #app.py
     #hahahao
+=======
+    #app.py
+>>>>>>> e597e5c (hello world test)
